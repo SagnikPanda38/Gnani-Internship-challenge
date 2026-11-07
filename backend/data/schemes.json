@@ -1,0 +1,81 @@
+[
+  {
+    "id": "csss",
+    "name": "Central Sector Scheme of Scholarship for College and University Students",
+    "short_name": "Central Sector Scholarship (CSSS)",
+    "levels": [
+      "undergraduate"
+    ],
+    "categories": [
+      "general",
+      "obc",
+      "sc",
+      "st",
+      "ews",
+      "other"
+    ],
+    "max_annual_income_inr": 450000,
+    "income_rule": "Demo filter only: confirm the current family-income ceiling and all academic conditions in the latest official guidelines.",
+    "eligibility_summary": "For meritorious students pursuing undergraduate studies. Selection and continuation conditions apply.",
+    "documents": [
+      "Class XII marksheet",
+      "Income certificate (if required)",
+      "Aadhaar / identity proof",
+      "Bank account details"
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source_checked_on": null,
+    "verification_status": "VERIFY_CURRENT_GUIDELINES"
+  },
+  {
+    "id": "sc-post-matric",
+    "name": "Post-Matric Scholarship for Scheduled Caste Students",
+    "short_name": "Post-Matric Scholarship (SC)",
+    "levels": [
+      "undergraduate",
+      "postgraduate",
+      "diploma"
+    ],
+    "categories": [
+      "sc"
+    ],
+    "max_annual_income_inr": 250000,
+    "income_rule": "Demo filter only: confirm the current income ceiling, domicile rules, course coverage and state implementation.",
+    "eligibility_summary": "For eligible SC students studying beyond Class X. State / UT rules and course conditions apply.",
+    "documents": [
+      "Caste certificate",
+      "Income certificate",
+      "Admission / bonafide certificate",
+      "Previous examination marksheet",
+      "Bank account details"
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source_checked_on": null,
+    "verification_status": "VERIFY_CURRENT_GUIDELINES"
+  },
+  {
+    "id": "top-class-sc",
+    "name": "Top Class Education Scheme for SC Students",
+    "short_name": "Top Class Education (SC)",
+    "levels": [
+      "undergraduate",
+      "postgraduate"
+    ],
+    "categories": [
+      "sc"
+    ],
+    "max_annual_income_inr": 800000,
+    "income_rule": "Demo filter only: confirm current income ceiling, notified-institution list, seat limits and course conditions.",
+    "eligibility_summary": "For eligible SC students admitted to notified institutions / courses. Institution and seat conditions apply.",
+    "documents": [
+      "Caste certificate",
+      "Income certificate",
+      "Admission proof",
+      "Previous examination marksheet",
+      "Bank account details"
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source_checked_on": null,
+    "verification_status": "VERIFY_CURRENT_GUIDELINES"
+  }
+]
