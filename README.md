@@ -151,23 +151,6 @@ An earlier version of the backend also sent a `preferred_language` field. It isn
 - Frontend: `frontend/src/App.jsx`, styling, browser testing, demo flow.
 - Both of us: verifying scheme records against official guidelines and trying real Hindi / Hinglish recordings.
 
-## Before we submit
-
-- [x] Confirm the Gnani endpoint and request fields against their docs
-- [x] Handle the 30 second limit, empty transcripts and Gnani error responses
-- [x] Test edge cases: missing income, category not applicable, no matching record
-- [x] Add `source_checked_on` and a source URL to every catalogue entry
-- [ ] Add your own Gnani API key to `backend/.env`; never commit or share this file.
-- [ ] Install ffmpeg and run the app locally; test a real Hindi clip and a real Hinglish clip with your Gnani account. Automated tests mock the upstream service and do not prove live account access.
-- [ ] Read the current official CSSS guidelines and record the exact eligibility criteria, official source URL and review date.
-- [ ] Read the current official Post-Matric SC guidelines, including state/domicile and course rules; record the exact source and review date.
-- [ ] Read the current Top Class SC guidelines and verify the notified-institution list, eligible courses, seat limits and income rule.
-- [ ] Only after official checks, update each record and set `income_rule_verified: true` only when its income ceiling has been confirmed. Set `verification_status: VERIFIED` only when all displayed eligibility claims are supported by current official sources.
-- [ ] Check current application windows / deadlines and add them only when supported by an official source.
-- [ ] Test the production build in a browser and check microphone permissions on the device/browser used for the demo.
-- [ ] Make sure `.env` and API keys never show up in GitHub, screenshots or the demo video.
-- [ ] Say clearly in the demo that this is guidance, not an official eligibility decision.
-
 ## Ideas if we have time
 
 - More schemes (ST, OBC, EWS, minority, girls-only), each one verified before it goes in
@@ -198,12 +181,3 @@ Confirm the exact URL, authentication header, form fields, and supported audio M
 - Frontend teammate: `frontend/src/App.jsx`, styling, browser testing, demo flow.
 - Both: verify every scheme record against official guidelines and test Hindi/Hinglish transcripts.
 
-## Before submission checklist
-- [ ] Confirm Gnani API endpoint and request schema from your own console.
-- [ ] Test voice transcription with Hindi and Hinglish recordings.
-- [ ] Verify scheme names, current availability, criteria, deadlines, and official URLs.
-- [ ] Add `source_checked_on` and source URL for each verified catalogue entry.
-- [ ] Test edge cases: missing income, category not applicable, no matching record.
-- [ ] Never expose `.env` or API keys in GitHub, screenshots, or demo video.
-- [ ] Make clear that the prototype provides guidance, not an official eligibility decision.
->>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
