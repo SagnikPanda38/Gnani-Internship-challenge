@@ -1,0 +1,133 @@
+[
+  {
+    "id": "csss",
+    "name": "Central Sector Scheme of Scholarship for College and University Students",
+    "short_name": "Central Sector Scholarship (CSSS)",
+    "levels": [
+      "undergraduate"
+    ],
+    "categories": [
+      "general",
+      "obc",
+      "sc",
+      "st",
+      "ews",
+      "other"
+    ],
+    "max_annual_income_inr": 450000,
+    "income_rule": "Demo filter only: confirm the current family-income ceiling and all academic conditions in the latest official guidelines.",
+    "eligibility_summary": "For students who scored above the 80th percentile in their Class 12 board exam and are pursuing a regular undergraduate course at a recognised institution. Students already getting another central scholarship are generally not eligible. Selection and renewal conditions apply.",
+    "documents": [
+      "Class XII marksheet",
+      "Income certificate (if required)",
+      "Aadhaar / identity proof",
+      "Bank account details"
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source_checked_on": "2026-11-10",
+    "verification_status": "VERIFY_CURRENT_GUIDELINES",
+    "keywords": [
+      "merit",
+      "percentile",
+      "board marks",
+      "class 12",
+      "12th",
+      "topper",
+      "marks",
+      "मेरिट",
+      "प्रतिशत",
+      "अंक",
+      "12वीं",
+      "बारहवीं"
+    ],
+    "source_url": "https://scholarships.gov.in/",
+    "source_note": "₹4.5 lakh income ceiling and 80th percentile rule found only on secondary sites (scholarship aggregators, exam-prep portals). Official PM-USP / CSSS guidelines still need to be opened and confirmed.",
+    "income_rule_verified": false
+  },
+  {
+    "id": "sc-post-matric",
+    "name": "Post-Matric Scholarship for Scheduled Caste Students",
+    "short_name": "Post-Matric Scholarship (SC)",
+    "levels": [
+      "undergraduate",
+      "postgraduate",
+      "diploma"
+    ],
+    "categories": [
+      "sc"
+    ],
+    "max_annual_income_inr": 250000,
+    "income_rule": "Demo filter only: confirm the current income ceiling, domicile rules, course coverage and state implementation.",
+    "eligibility_summary": "For eligible SC students studying beyond Class X. State / UT rules and course conditions apply.",
+    "documents": [
+      "Caste certificate",
+      "Income certificate",
+      "Admission / bonafide certificate",
+      "Previous examination marksheet",
+      "Bank account details"
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source_checked_on": "2026-11-10",
+    "verification_status": "CROSS_CHECKED",
+    "keywords": [
+      "scheduled caste",
+      "post matric",
+      "post-matric",
+      "tuition",
+      "maintenance",
+      "hostel",
+      "fees",
+      "अनुसूचित जाति",
+      "पोस्ट मैट्रिक",
+      "फीस",
+      "छात्रावास"
+    ],
+    "source_url": "https://socialjustice.gov.in/schemes/25",
+    "source_note": "₹2.5 lakh parental income ceiling matches a government scheme sheet that points to socialjustice.gov.in/schemes/25 and Lok Sabha / Rajya Sabha records. The ceiling is under public discussion, so recheck before the demo.",
+    "income_rule_verified": false
+  },
+  {
+    "id": "top-class-sc",
+    "name": "Top Class Education Scheme for SC Students",
+    "short_name": "Top Class Education (SC)",
+    "levels": [
+      "undergraduate",
+      "postgraduate"
+    ],
+    "categories": [
+      "sc"
+    ],
+    "max_annual_income_inr": 800000,
+    "income_rule": "Demo filter only: confirm current income ceiling, notified-institution list, seat limits and course conditions.",
+    "eligibility_summary": "For eligible SC students admitted to notified institutions / courses. Institution and seat conditions apply.",
+    "documents": [
+      "Caste certificate",
+      "Income certificate",
+      "Admission proof",
+      "Previous examination marksheet",
+      "Bank account details"
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source_checked_on": "2026-11-10",
+    "verification_status": "CROSS_CHECKED",
+    "keywords": [
+      "iit",
+      "nit",
+      "iim",
+      "aiims",
+      "law university",
+      "nift",
+      "nid",
+      "top institution",
+      "top college",
+      "notified institution",
+      "आईआईटी",
+      "एनआईटी",
+      "आईआईएम",
+      "एम्स"
+    ],
+    "source_url": "https://scholarships.gov.in/",
+    "source_note": "₹8 lakh income ceiling for SC students is stated in Parliament records (eparlib.sansad.in, question 2321) and in Careers360's report on the updated guidelines. The notified-institution list was not checked.",
+    "income_rule_verified": false
+  }
+]
