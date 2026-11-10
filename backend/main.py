@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import asyncio
 import json
 import os
@@ -5,10 +6,18 @@ import shutil
 import subprocess
 import tempfile
 from functools import lru_cache
+=======
+import json
+import os
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 from pathlib import Path
 from typing import Literal, Optional
 
 import httpx
+<<<<<<< HEAD
+=======
+import subprocess
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 from dotenv import load_dotenv
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,6 +28,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent
 CATALOGUE_PATH = BASE_DIR / "data" / "schemes.json"
 
+<<<<<<< HEAD
 # Gnani's REST endpoint only takes clips up to 30 seconds.
 MAX_AUDIO_SECONDS = 30
 MAX_UPLOAD_BYTES = 15 * 1024 * 1024
@@ -40,6 +50,17 @@ allowed_origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
+=======
+app = FastAPI(
+    title="Scheme Sathi",
+    version="1.0.0",
+    description="A voice-first scholarship discovery MVP. Results are guidance, not official eligibility decisions.",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -56,15 +77,32 @@ class StudentProfile(BaseModel):
     annual_income_inr: Optional[int] = Field(default=None, ge=0, le=100000000)
     state: str = Field(default="", max_length=80)
 
+<<<<<<< HEAD
 
 # ---------------------------------------------------------------- catalogue
 
 @lru_cache(maxsize=1)
 def _read_catalogue():
+=======
+def to_wav(audio_bytes: bytes) -> bytes:
+    """Convert any browser-recorded audio (webm/mp4/ogg) to 16kHz mono WAV."""
+    proc = subprocess.run(
+        ["ffmpeg", "-i", "pipe:0", "-ar", "16000", "-ac", "1",
+         "-f", "wav", "pipe:1", "-loglevel", "error"],
+        input=audio_bytes,
+        capture_output=True,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(f"ffmpeg failed: {proc.stderr.decode()}")
+    return proc.stdout
+
+def load_schemes():
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     with CATALOGUE_PATH.open("r", encoding="utf-8") as file:
         return json.load(file)
 
 
+<<<<<<< HEAD
 def load_schemes():
     """Catalogue is read once per process. Restart uvicorn after editing schemes.json
     (--reload does this for you)."""
@@ -151,21 +189,31 @@ def gnani_error_message(response: httpx.Response) -> str:
 @app.get("/")
 async def root():
     return {"service": "Scheme Sathi", "status": "running", "version": app.version}
+=======
+@app.get("/")
+async def root():
+    return {"service": "Scheme Sathi", "status": "running", "version": "1.0.0"}
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 
 
 @app.get("/health")
 async def health():
+<<<<<<< HEAD
     return {
         "status": "ok",
         "voice_configured": bool(GNANI_API_KEY),
         "ffmpeg_available": shutil.which("ffmpeg") is not None,
         "schemes_loaded": len(load_schemes()),
     }
+=======
+    return {"status": "ok"}
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 
 
 @app.get("/api/schemes")
 async def list_schemes():
     """Return the small catalogue for the frontend / project demo."""
+<<<<<<< HEAD
     schemes = load_schemes()
     return {"count": len(schemes), "schemes": schemes}
 
@@ -202,6 +250,16 @@ async def match_schemes(profile: StudentProfile):
                 "but your selected education level is different. "
                 "Please check your profile details."
             )
+=======
+    return {"count": len(load_schemes()), "schemes": load_schemes()}
+
+
+@app.post("/api/match")
+async def match_schemes(profile: StudentProfile):
+    """Transparent rule-based potential matching; never a legal eligibility decision."""
+    matches = []
+    review = []
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     for scheme in load_schemes():
         reasons = []
         warnings = []
@@ -214,6 +272,7 @@ async def match_schemes(profile: StudentProfile):
         reasons.append("Education level and category match the catalogue filters.")
 
         ceiling = scheme.get("max_annual_income_inr")
+<<<<<<< HEAD
         income_rule_verified = (
             scheme.get("verification_status") == "VERIFIED"
             and scheme.get("income_rule_verified") is True
@@ -233,18 +292,32 @@ async def match_schemes(profile: StudentProfile):
         hits = find_query_hits(profile.query, scheme)
         if hits:
             reasons.append("Your request mentions: " + ", ".join(hits[:4]) + ".")
+=======
+        if profile.annual_income_inr is None:
+            warnings.append("Add annual family income to apply the catalogue's income filter.")
+        elif ceiling is not None and profile.annual_income_inr > ceiling:
+            continue
+        elif ceiling is not None:
+            reasons.append("Reported family income is within the demo catalogue threshold.")
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 
         if profile.state.strip():
             warnings.append("Check domicile / state-specific rules for your state.")
 
+<<<<<<< HEAD
         extra = source_warning(scheme)
         if extra:
             warnings.append(extra)
+=======
+        if scheme.get("verification_status") != "VERIFIED":
+            warnings.append("Current availability and detailed rules have not been verified by this prototype.")
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 
         matches.append({
             **scheme,
             "match_reasons": reasons,
             "warnings": warnings,
+<<<<<<< HEAD
             "match_type": "potential",
             "query_hits": hits,
         })
@@ -252,12 +325,21 @@ async def match_schemes(profile: StudentProfile):
     # Schemes the user's own words point to go first; otherwise keep catalogue order.
     matches.sort(key=lambda m: -len(m["query_hits"]))
 
+=======
+            "match_type": "potential"
+        })
+
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     return {
         "success": True,
         "count": len(matches),
         "matches": matches,
+<<<<<<< HEAD
         "search_warning": search_warning,
         "notice": "Potential matches only. This prototype does not determine official eligibility or guarantee an award. Verify current rules and application dates on the official portal.",
+=======
+        "notice": "Potential matches only. This prototype does not determine official eligibility or guarantee an award. Verify current rules and application dates on the official portal."
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     }
 
 
@@ -271,6 +353,7 @@ async def transcribe_audio(
             status_code=503,
             detail="Voice service is not configured. Add GNANI_API_KEY to backend/.env. Text search still works.",
         )
+<<<<<<< HEAD
     if language_code not in SUPPORTED_LANGUAGES:
         raise HTTPException(
             status_code=400,
@@ -299,17 +382,56 @@ async def transcribe_audio(
         "language_code": language_code,
         # 'transcribe' turns spoken numbers into digits ("do lakh" -> 2,00,000)
         "format": "transcribe",
+=======
+
+    audio_data = await audio.read()
+    if not audio_data:
+        raise HTTPException(status_code=400, detail="The audio recording is empty.")
+    if len(audio_data) > 15 * 1024 * 1024:
+        raise HTTPException(status_code=413, detail="Audio is too large. Keep recordings under 15 MB.")
+
+    try:
+        wav_data = to_wav(audio_data)
+    except (RuntimeError, FileNotFoundError) as exc:
+        raise HTTPException(status_code=400, detail="Could not convert the audio recording to WAV.") from exc
+
+    files = {
+        "audio_file": ("scheme-sathi-recording.wav", wav_data, "audio/wav")
+    }
+    form_data = {
+        "language_code": language_code,
+        "preferred_language": language_code,
+        "format": "transcribe",
+        "itn_native_numerals": "true",
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     }
     headers = {"X-API-Key-ID": GNANI_API_KEY}
 
     try:
         async with httpx.AsyncClient(timeout=75.0) as client:
+<<<<<<< HEAD
             response = await client.post(GNANI_STT_URL, headers=headers, files=files, data=form_data)
+=======
+            response = await client.post(
+                GNANI_STT_URL,
+                headers=headers,
+                files=files,
+                data=form_data,
+            )
+        response.raise_for_status()
+        payload = response.json()
+    except httpx.HTTPStatusError as exc:
+        raise HTTPException(
+            status_code=502,
+            detail=f"Gnani STT returned HTTP {exc.response.status_code}: {exc.response.text[:500]}",
+        ) from exc
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     except httpx.RequestError as exc:
         raise HTTPException(
             status_code=502,
             detail=f"Could not connect to Gnani STT ({type(exc).__name__}).",
         ) from exc
+<<<<<<< HEAD
 
     if response.status_code >= 400:
         message = gnani_error_message(response)
@@ -340,3 +462,17 @@ async def transcribe_audio(
         "empty": not transcript.strip(),
         "request_id": payload.get("request_id"),
     }
+=======
+    except ValueError as exc:
+        raise HTTPException(status_code=502, detail="Gnani returned a non-JSON response.") from exc
+
+    transcript = payload.get("transcript")
+    if not transcript and isinstance(payload.get("data"), dict):
+        transcript = payload["data"].get("transcript")
+    if payload.get("success") is False:
+        raise HTTPException(status_code=502, detail=payload.get("message", "Gnani transcription failed."))
+    if transcript is None:
+        raise HTTPException(status_code=502, detail="Transcript not found in Gnani response. Check the response schema in your console.")
+
+    return {"success": True, "transcript": transcript, "request_id": payload.get("request_id")}
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345

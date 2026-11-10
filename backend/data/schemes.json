@@ -16,7 +16,11 @@
     ],
     "max_annual_income_inr": 450000,
     "income_rule": "Demo filter only: confirm the current family-income ceiling and all academic conditions in the latest official guidelines.",
+<<<<<<< HEAD
     "eligibility_summary": "For students who scored above the 80th percentile in their Class 12 board exam and are pursuing a regular undergraduate course at a recognised institution. Students already getting another central scholarship are generally not eligible. Selection and renewal conditions apply.",
+=======
+    "eligibility_summary": "For meritorious students pursuing undergraduate studies. Selection and continuation conditions apply.",
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
     "documents": [
       "Class XII marksheet",
       "Income certificate (if required)",
@@ -24,6 +28,7 @@
       "Bank account details"
     ],
     "official_url": "https://scholarships.gov.in/",
+<<<<<<< HEAD
     "source_checked_on": "2026-11-10",
     "verification_status": "VERIFY_CURRENT_GUIDELINES",
     "keywords": [
@@ -43,6 +48,10 @@
     "source_url": "https://scholarships.gov.in/",
     "source_note": "₹4.5 lakh income ceiling and 80th percentile rule found only on secondary sites (scholarship aggregators, exam-prep portals). Official PM-USP / CSSS guidelines still need to be opened and confirmed.",
     "income_rule_verified": false
+=======
+    "source_checked_on": null,
+    "verification_status": "VERIFY_CURRENT_GUIDELINES"
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
   },
   {
     "id": "sc-post-matric",
@@ -67,6 +76,7 @@
       "Bank account details"
     ],
     "official_url": "https://scholarships.gov.in/",
+<<<<<<< HEAD
     "source_checked_on": "2026-11-10",
     "verification_status": "CROSS_CHECKED",
     "keywords": [
@@ -85,6 +95,10 @@
     "source_url": "https://socialjustice.gov.in/schemes/25",
     "source_note": "₹2.5 lakh parental income ceiling matches a government scheme sheet that points to socialjustice.gov.in/schemes/25 and Lok Sabha / Rajya Sabha records. The ceiling is under public discussion, so recheck before the demo.",
     "income_rule_verified": false
+=======
+    "source_checked_on": null,
+    "verification_status": "VERIFY_CURRENT_GUIDELINES"
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
   },
   {
     "id": "top-class-sc",
@@ -108,6 +122,7 @@
       "Bank account details"
     ],
     "official_url": "https://scholarships.gov.in/",
+<<<<<<< HEAD
     "source_checked_on": "2026-11-10",
     "verification_status": "CROSS_CHECKED",
     "keywords": [
@@ -131,3 +146,9 @@
     "income_rule_verified": false
   }
 ]
+=======
+    "source_checked_on": null,
+    "verification_status": "VERIFY_CURRENT_GUIDELINES"
+  }
+]
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345

@@ -23,13 +23,17 @@ textarea{display:block;width:100%;resize:vertical;min-height:78px;border:1px sol
 .journey>small{display:block;margin-bottom:16px}.journey-item{display:flex;gap:11px;align-items:center;margin:15px 0}.journey-item>b{height:29px;width:29px;border-radius:9px;background:#eff4fc;color:#477bd0;display:grid;place-items:center;font-size:10px}.journey-item strong,.journey-item small{display:block}.journey-item strong{font-size:11px;color:#33455f}.journey-item small{font-size:10px;color:#94a0af;margin-top:3px}
 .side-note{display:flex;gap:10px;padding:14px;color:#718097;font-size:10px;line-height:1.55;background:#f0f6ff;border-color:#e2ecfb;box-shadow:none}.side-note svg{flex-shrink:0;color:#477bd0}.side-note b{color:#344c6e}
 .error{display:flex;gap:8px;align-items:flex-start;margin-top:12px;padding:10px 12px;border:1px solid #f1d7d9;border-radius:9px;background:#fff3f3;color:#a23f49;font-size:11px;line-height:1.5}.error svg{flex-shrink:0}
+<<<<<<< HEAD
 .info{display:flex;gap:8px;align-items:flex-start;margin-top:12px;padding:10px 12px;border:1px solid #dbe6f7;border-radius:9px;background:#f0f6ff;color:#3d5f93;font-size:11px;line-height:1.5}.info svg{flex-shrink:0}
+=======
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
 .results{margin-top:30px}.results-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}.results-head h2{font-size:23px}.results-head p{font-size:12px;color:#7d8ba0;margin:7px 0 0}.result-count{font-size:10px;letter-spacing:1px;font-weight:700;color:#477bd0;background:#eaf1ff;padding:8px 10px;border-radius:20px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.scheme-card{padding:20px}.scheme-top{display:flex;align-items:center;justify-content:space-between}.scheme-symbol{height:36px;width:36px;border-radius:11px;background:#edf3ff;color:#477bd0;display:grid;place-items:center}.potential{display:flex;align-items:center;gap:5px;color:#27866c;background:#eaf6f1;border-radius:20px;padding:6px 8px;font-size:9px;font-weight:600}.scheme-card h3{font:700 15px/1.4 Manrope,sans-serif;color:#243852;margin:15px 0 7px}.scheme-summary{font-size:11px;line-height:1.6;color:#738197;min-height:52px}.meta{display:flex;flex-direction:column;gap:7px;padding:12px 0;border-top:1px solid #edf0f5;border-bottom:1px solid #edf0f5;color:#6e7d92;font-size:10px}.meta span{display:flex;align-items:center;gap:7px}.meta svg{color:#477bd0}.reason{margin:12px 0;color:#718097;font-size:10px;line-height:1.5}.reason b{color:#425773}.reason p{margin:5px 0}.warning{display:flex;gap:7px;padding:10px;border-radius:8px;background:#fff8e9;color:#8b6a2d;font-size:9px;line-height:1.5}.warning svg{flex-shrink:0}.official-link{display:flex;justify-content:space-between;align-items:center;margin-top:14px;color:#356cb6;text-decoration:none;font-size:11px;font-weight:700}.official-link:hover{text-decoration:underline}.notice{margin-top:14px;padding:12px 14px;border-radius:9px;background:#f0f4fa;color:#718097;font-size:10px;line-height:1.6}.empty{text-align:center;padding:35px 15px;background:#fff;border:1px solid #e6ecf4;border-radius:14px;color:#8090a5}.empty svg{color:#477bd0}.empty h3{font:700 15px Manrope;color:#344861}.empty p{font-size:11px}
 footer{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #e7ecf3;margin-top:38px;padding:20px 2px;color:#9aa5b4;font-size:10px}.footer-brand{font-size:14px}
 .spin{animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:760px){.nav{padding:0 17px}.privacy{display:none}.container{padding:38px 15px 20px}.layout{grid-template-columns:1fr}.side{display:grid;grid-template-columns:1fr 1fr}.side-note{grid-column:1/-1}.form-panel{padding:22px 18px}.hero p{font-size:13px}}
 @media(max-width:480px){.side{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}.voice-row{align-items:flex-start;flex-direction:column}.results-head{align-items:flex-start;gap:10px;flex-direction:column}footer{align-items:flex-start;flex-direction:column}}
+<<<<<<< HEAD
 .warning-message {
   background: #fff7e6;
   border: 1px solid #e8bd68;
@@ -43,3 +47,5 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:12px;bo
   margin: 6px 0 0;
   line-height: 1.5;
 }
+=======
+>>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
