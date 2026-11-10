@@ -14,17 +14,7 @@ We kept the scope small on purpose. No login, no database, no LLM, and it never 
 - If your typed or spoken request mentions something specific (like "IIT", "fees" or "merit"), schemes that relate to it are moved to the top and the card says so.
 - Every result is labelled "potential match" and shows what to double check before applying.
 
-## Read this before demoing the data
 
-The catalogue is a starter list of three schemes, not a live or complete list of open scholarships. Income limits, deadlines and rules change. Here is where each entry stands right now (checked 10 Nov 2026):
-
-| Scheme | Status | Outstanding official checks |
-|---|---|---|
-| Post-Matric Scholarship (SC) | Not officially verified | Confirm current central/state guidelines, income ceiling, domicile rules, course coverage and application window. |
-| Top Class Education (SC) | Not officially verified | Confirm current income ceiling, notified-institution list, eligible courses, seat limits and application window. |
-| Central Sector Scholarship (CSSS) | Not officially verified | Confirm the current official income rule, Class XII percentile requirement, eligible courses and application window. |
-
-The source notes are research leads, not proof of current eligibility. All three income ceilings are marked `income_rule_verified: false`; the matching engine therefore does not use them to exclude a student. Nothing is marked `VERIFIED` until the current official guideline has been read and the exact criteria, source URL and review date have been recorded. Please don't present a result as confirmed eligibility.
 
 ## Requirements
 
@@ -36,89 +26,6 @@ The source notes are research leads, not proof of current eligibility. All three
   - Ubuntu/Debian: `sudo apt install ffmpeg`
 - A Gnani API key (only needed for voice)
 
-## Running the backend (Windows PowerShell)
-=======
-# Scheme Sathi — Scholarship MVP
-
-A deliberately small, voice-first scholarship discovery prototype for Indian students.
-
-## MVP features
-- Hindi / Hinglish / English text query.
-- Browser microphone recording.
-- Backend-only Gnani Prisma STT integration.
-- Short student profile (education level, category, annual family income).
-- Transparent, deterministic matching against a small editable JSON catalogue.
-- Results show why a record matched, what to verify, and an official portal link.
-- No login, no LLM dependency, no training, no application submission.
-
-## Important data disclaimer
-The included catalogue is a **demo starter catalogue**, not an authoritative or live list of open scholarships. Scholarship rules, income ceilings, deadlines, category conditions, and scheme availability can change. The UI labels results as potential matches and tells users to verify current details on the official portal. Before a public judging demo, the team must verify each included record from the relevant official scheme guidelines and update `backend/data/schemes.json` with the source URL and date checked. Do not present a potential match as confirmed eligibility or guaranteed award.
-
-## Requirements
-- Python 3.10+
-- Node.js 20+
-- Gnani API key (only required for voice transcription)
-
-## Run backend (Windows PowerShell)
->>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
-
-```powershell
-cd backend
-py -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-Copy-Item .env.example .env
-```
-
-<<<<<<< HEAD
-Put your key in `backend/.env`:
-=======
-Edit `backend/.env`:
->>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
-
-```env
-GNANI_API_KEY=your_real_key_here
-GNANI_STT_URL=https://api.vachana.ai/stt/v3
-```
-
-<<<<<<< HEAD
-Then start it:
-=======
-Start the API:
->>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
-
-```powershell
-uvicorn main:app --reload
-```
-
-<<<<<<< HEAD
-API docs are at http://127.0.0.1:8000/docs. The `/health` endpoint also tells you whether the key and ffmpeg were picked up, which saves a lot of guessing.
-
-## Running the frontend (second terminal)
-=======
-API docs: http://127.0.0.1:8000/docs
-
-## Run frontend (second terminal)
->>>>>>> 206e645de10ec6b529e384e4d67daaf6482d9345
-
-```powershell
-cd frontend
-npm install
-npm run dev
-```
-
-<<<<<<< HEAD
-Open http://localhost:5173. If the backend is on a different address, copy `frontend/.env.example` to `frontend/.env` and change `VITE_API_BASE_URL`. If the frontend is on a different origin, set `ALLOWED_ORIGINS` in `backend/.env`.
-
-## Tests
-
-```powershell
-cd backend
-pip install -r requirements-dev.txt
-pytest
-```
-
-These cover the matching rules and the edge cases from our checklist (missing income, category "other", no matching scheme, income just over a limit, Devanagari keywords), plus the transcribe endpoint with Gnani mocked out (success, empty speech, 401/403/429/500, missing ffmpeg, bad audio). Two tests run real ffmpeg and are skipped automatically if it isn't installed. None of the tests call the real Gnani API.
 
 ## Trying it by hand
 
@@ -174,7 +81,6 @@ If voice transcription fails, text search remains fully usable.
 - File field: `audio_file`
 - Form fields: `language_code`, `preferred_language`, `format`, `itn_native_numerals`
 
-Confirm the exact URL, authentication header, form fields, and supported audio MIME types against the API example in your Gnani console. The browser's MediaRecorder commonly emits WebM/Opus; if your account endpoint does not accept it, transcode to a supported format or use the console's supported upload format. Do not put the API key in frontend code.
 
 ## Team division
 - Backend teammate: `backend/main.py`, matching logic, catalogue verification, API tests.
